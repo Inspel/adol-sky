@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 //@ts-ignore
 const MapIcon = ({name}) => {
     const nameIcon = {
-        mytasks: TaskAlt,
+        tasks: TaskAlt,
         projects: ViewSidebar,
         employees: PeopleAlt
     }
@@ -25,20 +25,23 @@ const MapIcon = ({name}) => {
 }
 
 export const MainMenu = () => {
-    const menuItems= ['mytasks', 'projects', 'employees'];
+    const menuItems= ['tasks', 'projects', 'employees'];
+
+    const [selectedMenuItem, setSelectedMenuItem] = React.useState(0);
+
+    const selectMenuItem = (index: number) => setSelectedMenuItem(index);
 
     return (
         <List>
             {menuItems.map((text, index) => (
                 <Link to={text}>
-                    <ListItem button key={text}>
+                    <ListItem button key={text} selected={index === selectedMenuItem} onClick={() => selectMenuItem(index)} style={{textDecoration: 'none'}}>
                         <ListItemIcon>
                             <MapIcon name={text} />
                         </ListItemIcon>
                         <ListItemText primary={text} />
                     </ListItem>
                 </Link>
-                
             ))}
         </List>
     )
