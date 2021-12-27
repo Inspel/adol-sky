@@ -35,8 +35,6 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 
-
-
 //@ts-ignore
 export const BaseLayout = ({ logo, mainMenu, userMenu, content }) => {
 
@@ -71,15 +69,12 @@ export const BaseLayout = ({ logo, mainMenu, userMenu, content }) => {
                     >
                         <MenuIcon />
                     </IconButton>
-                   
                     <Typography variant="h6" noWrap component="div">
                         {logo}
                     </Typography>
                     <Typography variant="h6" noWrap component="div" style={{position: 'absolute', right: '16px'}}>
                         {userMenu}
                     </Typography>
-
-                    
                 </Toolbar>
                
             </AppBar>
