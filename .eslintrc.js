@@ -14,12 +14,13 @@ module.exports = {
       'plugin:testing-library/react',
       'plugin:prettier/recommended',
       'plugin:import/recommended',
+      'plugin:import/typescript',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         project: ['./tsconfig.json']
     },
-    ignorePatterns: ["/*.*", 'server', "node_modules", "client"],
+    ignorePatterns: ['node_modules'],
     plugins: ['import', 'react', 'prettier'],
     rules: {
         'prettier/prettier': [
@@ -56,9 +57,10 @@ module.exports = {
         'jsx-a11y/anchor-is-valid': ['error', { components: [] }],
         'jsx-a11y/label-has-associated-control': 0,
         'no-webpack-loader-syntax': 0,
-        "no-use-before-define": "off",
+        'no-use-before-define': 'off',
         'no-param-reassign': ['error', { props: true, ignorePropertyModificationsFor: ['state', 'acc'] }],
-        "@typescript-eslint/no-use-before-define": ["error"],
-        "@typescript-eslint/no-explicit-any": ["warn"],
+        '@typescript-eslint/no-use-before-define': ['error'],
+        '@typescript-eslint/no-explicit-any': ['warn'],
+        '@typescript-eslint/ban-ts-comment': 0,
     },
 };
