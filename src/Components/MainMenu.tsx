@@ -7,13 +7,14 @@ import TaskAlt from '@mui/icons-material/TaskAlt';
 import ViewSidebar from '@mui/icons-material/ViewSidebar';
 import PeopleAlt from '@mui/icons-material/PeopleAlt';
 import List from '@mui/material/List';
+import { Link } from 'react-router-dom';
 
 //@ts-ignore
 const MapIcon = ({name}) => {
     const nameIcon = {
-        MyTasks: TaskAlt,
-        Projects: ViewSidebar,
-        Employees: PeopleAlt
+        mytasks: TaskAlt,
+        projects: ViewSidebar,
+        employees: PeopleAlt
     }
     //@ts-ignore
     const Icon = nameIcon[name]
@@ -24,17 +25,20 @@ const MapIcon = ({name}) => {
 }
 
 export const MainMenu = () => {
-    const menuItems= ['MyTasks', 'Projects', 'Employees'];
+    const menuItems= ['mytasks', 'projects', 'employees'];
 
     return (
         <List>
             {menuItems.map((text, index) => (
-                <ListItem button key={text}>
-                    <ListItemIcon>
-                        <MapIcon name={text} />
-                    </ListItemIcon>
-                    <ListItemText primary={text} />
-                </ListItem>
+                <Link to={text}>
+                    <ListItem button key={text}>
+                        <ListItemIcon>
+                            <MapIcon name={text} />
+                        </ListItemIcon>
+                        <ListItemText primary={text} />
+                    </ListItem>
+                </Link>
+                
             ))}
         </List>
     )
